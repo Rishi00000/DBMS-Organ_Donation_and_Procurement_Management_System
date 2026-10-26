@@ -6,7 +6,7 @@
 -- =====================================================
 -- Password: admin123 (hashed with bcrypt)
 INSERT INTO users (username, email, password_hash, role, is_active) VALUES
-('admin', 'admin@odpms.com', '$2b$10$rKvVXZWQh6F5zY.gXvQYVOqK6lY1qF5bP6YZQ7Z5zY.gXvQYVOqK6l', 'admin', true);
+('admin', 'admin@odpms.com', '$2b$10$NE7iY8JyhKnr5oneQcSGN.kBMFK0.Im4PNVfS/uisiVtSuQvkVVgC', 'admin', true);
 
 -- =====================================================
 -- SAMPLE HOSPITALS (for testing)
@@ -22,9 +22,9 @@ INSERT INTO hospitals (name, registration_number, address, city, state, postal_c
 -- =====================================================
 -- Password for all: staff123
 INSERT INTO users (username, email, password_hash, role, is_active) VALUES
-('apollo_staff1', 'staff1@apollochennai.com', '$2b$10$rKvVXZWQh6F5zY.gXvQYVOqK6lY1qF5bP6YZQ7Z5zY.gXvQYVOqK6l', 'hospital_staff', true),
-('fortis_staff1', 'staff1@fortismohali.com', '$2b$10$rKvVXZWQh6F5zY.gXvQYVOqK6lY1qF5bP6YZQ7Z5zY.gXvQYVOqK6l', 'hospital_staff', true),
-('aiims_staff1', 'staff1@aiims.edu', '$2b$10$rKvVXZWQh6F5zY.gXvQYVOqK6lY1qF5bP6YZQ7Z5zY.gXvQYVOqK6l', 'hospital_staff', true);
+('apollo_staff1', 'staff1@apollochennai.com', '$2b$10$MzKuBQokC91d35hBZ/W0dOxY7fh5Ikn12D6iFDunz8POT7gDZZj5q', 'hospital_staff', true),
+('fortis_staff1', 'staff1@fortismohali.com', '$2b$10$MzKuBQokC91d35hBZ/W0dOxY7fh5Ikn12D6iFDunz8POT7gDZZj5q', 'hospital_staff', true),
+('aiims_staff1', 'staff1@aiims.edu', '$2b$10$MzKuBQokC91d35hBZ/W0dOxY7fh5Ikn12D6iFDunz8POT7gDZZj5q', 'hospital_staff', true);
 
 INSERT INTO hospital_staff (user_id, hospital_id, first_name, last_name, designation, license_number, phone) VALUES
 (2, 1, 'Rajesh', 'Kumar', 'Transplant Coordinator', 'TC-AP-2024-001', '+919876543210'),
@@ -53,10 +53,10 @@ INSERT INTO organs (donor_id, organ_type, is_available, procurement_date, expiry
 -- =====================================================
 -- Password for recipient users: patient123
 INSERT INTO users (username, email, password_hash, role, is_active) VALUES
-('patient_arjun', 'arjun.verma@email.com', '$2b$10$rKvVXZWQh6F5zY.gXvQYVOqK6lY1qF5bP6YZQ7Z5zY.gXvQYVOqK6l', 'recipient', true),
-('patient_kavita', 'kavita.nair@email.com', '$2b$10$rKvVXZWQh6F5zY.gXvQYVOqK6lY1qF5bP6YZQ7Z5zY.gXvQYVOqK6l', 'recipient', true),
-('patient_suresh', 'suresh.kumar@email.com', '$2b$10$rKvVXZWQh6F5zY.gXvQYVOqK6lY1qF5bP6YZQ7Z5zY.gXvQYVOqK6l', 'recipient', true),
-('patient_deepa', 'deepa.sharma@email.com', '$2b$10$rKvVXZWQh6F5zY.gXvQYVOqK6lY1qF5bP6YZQ7Z5zY.gXvQYVOqK6l', 'recipient', true);
+('patient_arjun', 'arjun.verma@email.com', '$2b$10$4ZrUYHZSqupGo.Efu5CSKuaQFueETh.6.4eeZaphsVH6jyFZgCxMu', 'recipient', true),
+('patient_kavita', 'kavita.nair@email.com', '$2b$10$4ZrUYHZSqupGo.Efu5CSKuaQFueETh.6.4eeZaphsVH6jyFZgCxMu', 'recipient', true),
+('patient_suresh', 'suresh.kumar@email.com', '$2b$10$4ZrUYHZSqupGo.Efu5CSKuaQFueETh.6.4eeZaphsVH6jyFZgCxMu', 'recipient', true),
+('patient_deepa', 'deepa.sharma@email.com', '$2b$10$4ZrUYHZSqupGo.Efu5CSKuaQFueETh.6.4eeZaphsVH6jyFZgCxMu', 'recipient', true);
 
 INSERT INTO recipients (user_id, hospital_id, registered_by, first_name, last_name, date_of_birth, gender, blood_type, required_organ, hla_typing, urgency_level, medical_condition, weight_kg, height_cm, phone, email, address, city, state, waitlist_date, status) VALUES
 (5, 1, 2, 'Arjun', 'Verma', '1978-09-10', 'Male', 'B+', 'kidney', 'A*03:01-B*07:02-DRB1*04:01', 'critical', 'End-stage renal disease, on dialysis', 70.0, 172.0, '+919234567890', 'arjun.verma@email.com', '555 River Rd', 'Chennai', 'Tamil Nadu', '2024-03-15', 'active'),
