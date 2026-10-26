@@ -60,10 +60,7 @@ A comprehensive web-based platform that connects organ donors, recipients, hospi
 
 ### Installation
 
-1. **Clone the repository** (or use the existing directory)
-```bash
-cd /Users/maheshvellogi/Downloads/DBMS_Project
-```
+1. **Open a terminal in the project root directory** (the folder containing `backend` and `frontend`).
 
 2. **Setup PostgreSQL Database**
 ```bash
@@ -118,7 +115,7 @@ The application will be available at:
 ## 📁 Project Structure
 
 ```
-DBMS_Project/
+project-root/
 ├── backend/
 │   ├── src/
 │   │   ├── config/         # Database and app configuration
