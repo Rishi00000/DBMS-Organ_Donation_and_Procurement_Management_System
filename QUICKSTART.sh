@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# ODPMS Quick Start Script
+# LifeLink Quick Start Script
 # This script automates the initial setup process
 
 set -e  # Exit on error
 
-echo "🏥 ODPMS - Organ Donation & Procurement Management System"
+echo "🏥 LifeLink - Organ Donation & Procurement Management System"
 echo "=========================================================="
 echo ""
 
@@ -42,8 +42,8 @@ echo ""
 # Create database
 echo "Creating database..."
 export PGPASSWORD=$DB_PASSWORD
-psql -U $DB_USER -c "DROP DATABASE IF EXISTS odpms_db;" 2>/dev/null || true
-psql -U $DB_USER -c "CREATE DATABASE odpms_db;"
+psql -U $DB_USER -c "DROP DATABASE IF EXISTS lifelink_db;" 2>/dev/null || true
+psql -U $DB_USER -c "CREATE DATABASE lifelink_db;"
 
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}✅ Database created successfully${NC}"
@@ -54,8 +54,8 @@ fi
 
 # Initialize schema
 echo "Initializing database schema..."
-psql -U $DB_USER -d odpms_db -f backend/database/schema.sql > /dev/null
-psql -U $DB_USER -d odpms_db -f backend/database/init.sql
+psql -U $DB_USER -d lifelink_db -f backend/database/schema.sql > /dev/null
+psql -U $DB_USER -d lifelink_db -f backend/database/init.sql
 
 echo -e "${GREEN}✅ Database initialized with sample data${NC}"
 echo ""

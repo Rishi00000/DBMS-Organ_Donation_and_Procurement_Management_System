@@ -299,7 +299,7 @@ class MatchingService {
               </ul>
               <p>Your hospital will contact you shortly with more details about the surgery date and time. Please ensure you are available and ready for the procedure.</p>
               <p>If you have any questions, please contact your hospital immediately.</p>
-              <p>Best regards,<br>Organ Donation and Procurement Network Management System</p>
+              <p>Best regards,<br>LifeLink</p>
             `,
             text: `Great news! A compatible ${organType} has been found and your transplant has been scheduled. Your hospital will contact you shortly with surgery details.`
           });

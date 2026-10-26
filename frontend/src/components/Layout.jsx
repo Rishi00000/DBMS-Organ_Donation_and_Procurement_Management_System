@@ -49,7 +49,7 @@ const Layout = ({ children }) => {
           {/* Logo */}
           <div className="flex items-center justify-center h-16 px-4 bg-blue-600 text-white">
             <Heart className="w-8 h-8 mr-2" />
-            <span className="text-xl font-bold">ODPMS</span>
+            <span className="text-xl font-bold">LifeLink</span>
           </div>
 
           {/* Navigation */}

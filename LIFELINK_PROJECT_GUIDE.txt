@@ -1,0 +1,286 @@
+LIFELINK
+ORGAN DONATION AND PROCUREMENT MANAGEMENT SYSTEM
+RUNNING INSTRUCTIONS, PROJECT USE, AND DBMS CONCEPTS
+=====================================================
+
+1. PROJECT PURPOSE
+-----------------
+
+LifeLink is an academic web application prototype for coordinating organ
+donation and transplant-related information between hospitals, donors,
+recipients, and administrators.
+
+The project demonstrates how a relational database can store and connect
+information about users, hospitals, donors, recipients, organs, potential
+matches, transplants, and audit activity. Hospital staff can register donor
+and recipient records, available organs can be matched with eligible
+recipients, and transplant progress can be recorded. Administrators can
+oversee hospitals and view system information. Recipient users can sign in to
+view their waitlist and match information.
+
+This is for academic demonstration only. It is not clinical software and must
+not be used to make real-world medical or organ-allocation decisions.
+
+
+2. REQUIREMENTS
+---------------
+
+- Node.js 18 or later and npm
+- PostgreSQL 14 or later
+- A terminal such as PowerShell on Windows
+
+Check that Node.js and npm are available:
+
+    node --version
+    npm --version
+
+Check PostgreSQL:
+
+    psql --version
+
+Make sure the PostgreSQL service is running before setting up or starting the
+backend.
+
+
+3. FIRST-TIME DATABASE SETUP
+----------------------------
+
+Open a terminal in the project root directory (the directory containing the
+backend and frontend folders).
+
+Create the database:
+
+    createdb -U postgres lifelink_db
+
+If the database already exists, do not create it again. If you need to initialize
+the tables and sample records, run:
+
+    psql -U postgres -d lifelink_db -f backend\database\schema.sql
+    psql -U postgres -d lifelink_db -f backend\database\init.sql
+
+IMPORTANT: schema.sql drops and recreates the project's tables and types.
+Running it again will erase existing project data in those tables.
+
+If your PostgreSQL account is not named postgres, replace postgres in the
+commands with your PostgreSQL username.
+
+
+4. CONFIGURE THE BACKEND
+------------------------
+
+Open backend\.env in a text editor. Set the database username and password to
+the credentials for your local PostgreSQL account. Keep this file private and
+do not share or commit its secrets.
+
+The main settings should look like this:
+
+    NODE_ENV=development
+    PORT=3000
+    DB_HOST=localhost
+    DB_PORT=5432
+    DB_NAME=lifelink_db
+    DB_USER=postgres
+    DB_PASSWORD=your_local_postgres_password
+    JWT_SECRET=replace_with_a_long_random_secret
+    JWT_EXPIRES_IN=24h
+    FRONTEND_URL=http://localhost:5173
+
+Replace DB_USER and DB_PASSWORD with your local PostgreSQL credentials.
+Replace JWT_SECRET with a long, random value. Do not paste secrets into reports,
+screenshots, or source control.
+
+
+5. INSTALL DEPENDENCIES
+-----------------------
+
+From the project root, install the backend dependencies:
+
+    cd backend
+    npm install
+
+Then install the frontend dependencies:
+
+    cd ..\frontend
+    npm install
+
+These commands are needed once initially, and again if dependencies change or
+node_modules is removed.
+
+
+6. START THE APPLICATION
+------------------------
+
+Keep the PostgreSQL service running. Open two separate terminals in the project
+root.
+
+Terminal 1 - start the backend API:
+
+    cd backend
+    npm run dev
+
+The API runs at:
+
+    http://localhost:3000
+
+Check that the API and database are connected:
+
+    curl.exe http://localhost:3000/health
+
+Terminal 2 - start the frontend:
+
+    cd frontend
+    npm run dev
+
+Open the frontend in a browser:
+
+    http://localhost:5173
+
+To stop either development server, press Ctrl+C in its terminal.
+
+
+7. DEMO LOGIN ACCOUNTS
+----------------------
+
+These accounts are inserted by backend/database/init.sql:
+
+    Administrator
+    Username: admin
+    Password: admin123
+
+    Hospital staff
+    Username: apollo_staff1
+    Password: staff123
+
+    Recipient/patient
+    Username: patient_arjun
+    Password: patient123
+
+Other seeded hospital staff accounts use the username prefixes fortis_staff1
+and aiims_staff1 with password staff123. Other seeded recipient accounts are
+patient_kavita, patient_suresh, and patient_deepa; their password is
+patient123.
+
+These are public demo credentials, not secure production accounts. Do not use
+them in a deployed system.
+
+
+8. HOW TO USE THE PROJECT
+-------------------------
+
+Administrator:
+- Review network dashboard statistics.
+- Review hospitals and manage hospital approval.
+- View user, donor, recipient, organ, match, transplant, and audit information.
+
+Hospital staff:
+- Register donor records and organs.
+- Register recipients and create their patient login accounts.
+- Review the waitlist and potential organ matches.
+- Accept or reject matches and record transplant progress.
+
+Recipient:
+- Sign in with the account created for them by hospital staff.
+- View their waitlist information and potential matches.
+
+The organ-matching workflow uses donor/organ and recipient information to
+identify and rank possible matches. It considers blood-type compatibility,
+HLA similarity, urgency, waitlist duration, and hospital location. Matching
+results are demonstrations only and are not medical recommendations.
+
+
+9. DBMS CONCEPTS DEMONSTRATED
+-----------------------------
+
+Relational modeling:
+- The schema separates users, hospitals, hospital staff, donors, organs,
+  recipients, matches, transplants, and audit logs into related tables.
+- This models entities and relationships instead of keeping all application
+  data in one large table.
+
+Keys and relationships:
+- Tables use primary keys to identify records.
+- Foreign keys connect staff to users and hospitals, organs to donors,
+  recipients to hospitals and optional user accounts, matches to organs and
+  recipients, and transplants to matches and related records.
+- UNIQUE constraints prevent duplicate usernames, emails, and other identifiers.
+
+Integrity constraints and domain types:
+- NOT NULL, UNIQUE, CHECK, and foreign-key constraints protect data validity.
+- PostgreSQL ENUM types restrict roles, blood types, organ types, urgency
+  levels, and record statuses to defined values.
+
+Indexes:
+- Indexes are defined on frequently filtered or joined columns, such as user
+  roles, hospital locations/status, donor blood type, recipient waitlist fields,
+  and match status/score.
+- Indexes can improve query performance, at the cost of storage and additional
+  work when records are changed.
+
+Views:
+- Views such as v_active_waitlist, v_available_organs, and v_system_stats
+  present useful derived information from underlying tables.
+
+Functions and triggers:
+- Database functions implement reusable logic, including blood compatibility,
+  HLA match scoring, geographic distance, timestamp maintenance, and audit-log
+  creation.
+- Triggers call database logic automatically when selected records are
+  inserted, updated, or deleted.
+
+Transactions:
+- Recipient creation saves a user account and recipient record as one unit.
+- Match acceptance updates match, organ, recipient, and transplant-related
+  records within a transaction, so the changes can commit together or roll back
+  on failure.
+
+Parameterized SQL:
+- Backend database operations use parameterized queries for supplied values.
+  This separates data from SQL commands and helps prevent SQL injection.
+
+Access control and audit:
+- Application roles distinguish administrators, hospital staff, and recipients.
+- The backend restricts operations based on the signed-in user's role and
+  hospital context.
+- Audit records provide a history of selected important operations.
+
+
+10. SUGGESTED DBMS PROJECT DEMONSTRATION
+----------------------------------------
+
+For a class presentation, show:
+
+1. The ER diagram or table relationship diagram, and explain the primary and
+   foreign keys.
+2. The PostgreSQL schema and examples of CHECK, UNIQUE, and ENUM constraints.
+3. A query to list the active waitlist and another to show available organs.
+4. An example index and explain which query/filter it supports.
+5. A database function or trigger, such as HLA scoring or audit logging.
+6. A transaction: register a recipient with a login account, or accept a match
+   and update its related records.
+7. The application workflow for administrator, hospital staff, and recipient
+   roles.
+
+When discussing normalization, explain how the design separates distinct
+entities and avoids storing repeated entity details in a single table. Validate
+the exact normal forms using the functional dependencies required by your
+course; do not claim a formal normal form without that analysis.
+
+
+11. KNOWN LIMITATIONS
+---------------------
+
+- This is an academic prototype, not a production healthcare system.
+- The matching algorithm is simplified and is not suitable for real allocation.
+- Demo credentials and sample medical data are for local testing only.
+- Email notification settings are optional and require separate configuration.
+- The backend test command currently has no test files configured in the
+  project, so successful startup does not mean all business flows are tested.
+- Security, privacy, data retention, clinical validation, backups, and
+  regulatory compliance require substantial work before any real deployment.
+
+
+12. MORE INFORMATION
+--------------------
+
+See README.md for the project overview and PROJECT_GUIDE.md for the API
+reference and additional setup details.

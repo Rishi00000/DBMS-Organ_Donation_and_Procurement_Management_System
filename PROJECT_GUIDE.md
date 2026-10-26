@@ -1,6 +1,6 @@
-# ODPMS Project Guide
+# LifeLink Project Guide
 
-This guide combines setup, getting-started, and API reference information for the Organ Donation and Procurement Management System.
+This guide combines setup, getting-started, and API reference information for LifeLink, an Organ Donation and Procurement Management System.
 
 ## Requirements
 
@@ -23,15 +23,15 @@ psql --version
 Start PostgreSQL, then create the project database:
 
 ```powershell
-createdb -U postgres odpms_db
+createdb -U postgres lifelink_db
 ```
 
 From the project root, run the schema and sample-data scripts:
 
 ```powershell
 cd backend
-psql -U postgres -d odpms_db -f database\schema.sql
-psql -U postgres -d odpms_db -f database\init.sql
+psql -U postgres -d lifelink_db -f database\schema.sql
+psql -U postgres -d lifelink_db -f database\init.sql
 ```
 
 > **Warning:** `schema.sql` drops and recreates the project tables. Do not rerun it if you need to keep existing database data.
@@ -51,7 +51,7 @@ NODE_ENV=development
 PORT=3000
 DB_HOST=localhost
 DB_PORT=5432
-DB_NAME=odpms_db
+DB_NAME=lifelink_db
 DB_USER=postgres
 DB_PASSWORD=your_postgres_password
 JWT_SECRET=replace_with_a_long_random_secret
@@ -104,7 +104,7 @@ After signing in, the admin can review system-wide data and manage hospitals. Ho
 To inspect the database:
 
 ```powershell
-psql -U postgres -d odpms_db
+psql -U postgres -d lifelink_db
 ```
 
 Useful `psql` commands:
@@ -225,7 +225,7 @@ Successful responses generally contain data in a `data` property. Errors use an 
 
 ## Troubleshooting
 
-- **Database connection fails:** Confirm PostgreSQL is running, `odpms_db` exists, and the credentials in `backend\.env` are correct.
+- **Database connection fails:** Confirm PostgreSQL is running, `lifelink_db` exists, and the credentials in `backend\.env` are correct.
 - **Tables are missing:** Run the schema and seed commands from the backend setup section. The schema script drops existing project tables before recreating them.
 - **A port is already in use:** Stop the process using port 3000 (backend) or 5173 (frontend), or configure the backend `PORT`.
 - **A dependency is missing:** Run `npm install` in the affected `backend` or `frontend` directory.

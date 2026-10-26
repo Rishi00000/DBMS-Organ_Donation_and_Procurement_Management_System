@@ -1,4 +1,4 @@
--- Organ Donation and Procurement Management System (ODPMS)
+-- LifeLink - Organ Donation and Procurement Management System
 -- PostgreSQL Database Schema
 -- Author: Rishi
 -- Description: Complete database schema with constraints, indexes, and relationships

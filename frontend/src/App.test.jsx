@@ -8,7 +8,7 @@ function AppTest() {
         If you see this, React is rendering correctly.
       </p>
       <p style={{ fontSize: '18px', color: '#666', marginTop: '20px' }}>
-        ODPMS System - Testing
+        LifeLink System - Testing
       </p>
     </div>
   );

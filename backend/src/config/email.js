@@ -33,7 +33,7 @@ if (process.env.EMAIL_USER && process.env.EMAIL_PASSWORD &&
 export const sendEmail = async ({ to, subject, html, text }) => {
   try {
     const mailOptions = {
-      from: process.env.EMAIL_FROM || 'ODPMS System <noreply@odpms.com>',
+      from: process.env.EMAIL_FROM || 'LifeLink System <noreply@lifelink.local>',
       to,
       subject,
       text,
@@ -52,7 +52,7 @@ export const sendEmail = async ({ to, subject, html, text }) => {
 // Email templates
 export const emailTemplates = {
   matchNotification: (recipientName, organType, donorHospital) => ({
-    subject: '🎯 Potential Organ Match Found - ODPMS',
+    subject: '🎯 Potential Organ Match Found - LifeLink',
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <h2 style="color: #2563eb;">Potential Organ Match Found!</h2>
@@ -61,7 +61,7 @@ export const emailTemplates = {
         <p><strong>Donor Hospital:</strong> ${donorHospital}</p>
         <p>Please contact your transplant coordinator immediately for further details.</p>
         <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; color: #666; font-size: 12px;">
-          This is an automated message from the Organ Donation and Procurement Management System.
+          This is an automated message from LifeLink.
         </p>
       </div>
     `,
@@ -78,7 +78,7 @@ export const emailTemplates = {
         ${details ? `<p>${details}</p>` : ''}
         <p>For more information, please contact your healthcare provider.</p>
         <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; color: #666; font-size: 12px;">
-          This is an automated message from ODPMS.
+          This is an automated message from LifeLink.
         </p>
       </div>
     `,
@@ -86,21 +86,21 @@ export const emailTemplates = {
   }),
 
   welcomeEmail: (name, username, role) => ({
-    subject: 'Welcome to ODPMS - Account Created',
+    subject: 'Welcome to LifeLink - Account Created',
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2 style="color: #2563eb;">Welcome to ODPMS!</h2>
+        <h2 style="color: #2563eb;">Welcome to LifeLink!</h2>
         <p>Dear ${name},</p>
         <p>Your account has been successfully created.</p>
         <p><strong>Username:</strong> ${username}</p>
         <p><strong>Role:</strong> ${role}</p>
         <p>You can now log in to the system and access your dashboard.</p>
         <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; color: #666; font-size: 12px;">
-          This is an automated message from ODPMS.
+          This is an automated message from LifeLink.
         </p>
       </div>
     `,
-    text: `Welcome to ODPMS!\n\nDear ${name},\n\nYour account has been successfully created.\nUsername: ${username}\nRole: ${role}`,
+    text: `Welcome to LifeLink!\n\nDear ${name},\n\nYour account has been successfully created.\nUsername: ${username}\nRole: ${role}`,
   }),
 };
 

@@ -1,4 +1,4 @@
--- Initial Data for ODPMS Database
+-- Initial Data for LifeLink Database
 -- This file seeds the database with initial admin user and sample data
 
 -- =====================================================
@@ -6,7 +6,7 @@
 -- =====================================================
 -- Password: admin123 (hashed with bcrypt)
 INSERT INTO users (username, email, password_hash, role, is_active) VALUES
-('admin', 'admin@odpms.com', '$2b$10$NE7iY8JyhKnr5oneQcSGN.kBMFK0.Im4PNVfS/uisiVtSuQvkVVgC', 'admin', true);
+('admin', 'admin@lifelink.local', '$2b$10$NE7iY8JyhKnr5oneQcSGN.kBMFK0.Im4PNVfS/uisiVtSuQvkVVgC', 'admin', true);
 
 -- =====================================================
 -- SAMPLE HOSPITALS (for testing)

@@ -1,4 +1,4 @@
-# Organ Donation and Procurement Network Management System (ODPMS)
+# LifeLink - Organ Donation and Procurement Network Management System
 
 A comprehensive web-based platform that connects organ donors, recipients, hospitals, and administrative bodies to automate and streamline the process of organ matching and allocation.
 
@@ -65,11 +65,11 @@ A comprehensive web-based platform that connects organ donors, recipients, hospi
 2. **Setup PostgreSQL Database**
 ```bash
 # Create a new database
-createdb odpms_db
+createdb lifelink_db
 
 # Or using psql
 psql -U postgres
-CREATE DATABASE odpms_db;
+CREATE DATABASE lifelink_db;
 \q
 ```
 

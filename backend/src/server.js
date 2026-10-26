@@ -98,7 +98,7 @@ app.use('/api/admin', adminRoutes);
 // API documentation route
 app.get('/api', (req, res) => {
   res.json({
-    message: 'ODPMS API - Organ Donation and Procurement Management System',
+    message: 'LifeLink API - Organ Donation and Procurement Management System',
     version: '1.0.0',
     endpoints: {
       auth: '/api/auth',
@@ -133,7 +133,7 @@ app.listen(PORT, () => {
   console.log('');
   console.log('╔═══════════════════════════════════════════════════════════╗');
   console.log('║                                                           ║');
-  console.log('║   🏥  ODPMS - Organ Donation & Procurement System  🏥    ║');
+  console.log('║   🏥  LifeLink - Organ Donation & Procurement System  🏥 ║');
   console.log('║                                                           ║');
   console.log('╚═══════════════════════════════════════════════════════════╝');
   console.log('');

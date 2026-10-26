@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import AppComprehensive from './App.comprehensive';
 
-console.log('🚀 ODPMS Frontend Starting...');
-console.log('📦 Loading comprehensive ODPMS system with all modules...');
+console.log('🚀 LifeLink Frontend Starting...');
+console.log('📦 Loading comprehensive LifeLink system with all modules...');
 
 try {
   const root = document.getElementById('root');
@@ -18,14 +18,14 @@ try {
     </React.StrictMode>
   );
   
-  console.log('✅ ODPMS app rendered successfully');
+  console.log('✅ LifeLink app rendered successfully');
   console.log('🎉 You should see the login page now!');
 } catch (error) {
   console.error('❌ Error rendering app:', error);
   console.error('Stack:', error.stack);
   document.body.innerHTML = `
     <div style="padding:40px;font-family:monospace;max-width:800px;margin:50px auto;">
-      <h1 style="color:#ef4444;margin-bottom:20px;">❌ Failed to Load ODPMS</h1>
+      <h1 style="color:#ef4444;margin-bottom:20px;">❌ Failed to Load LifeLink</h1>
       <div style="background:#fee2e2;padding:20px;border-radius:8px;margin-bottom:20px;">
         <strong>Error:</strong> ${error.message}
       </div>

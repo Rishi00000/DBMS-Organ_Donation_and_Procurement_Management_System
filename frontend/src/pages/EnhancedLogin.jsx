@@ -271,7 +271,7 @@ const EnhancedLogin = ({ onLoginSuccess, onNavigateToRegister }) => {
       <div style={styles.card}>
         <div style={styles.header}>
           <div style={styles.logo}>🏥</div>
-          <h1 style={styles.title}>ODPMS</h1>
+          <h1 style={styles.title}>LifeLink</h1>
           <p style={styles.subtitle}>Organ Donation & Procurement Management</p>
         </div>
 

@@ -375,7 +375,7 @@ const AdminDashboard = () => {
     <div style={styles.container}>
       <header style={styles.header}>
         <div style={{ fontSize: '20px', fontWeight: 'bold', color: '#667eea' }}>
-          🏥 ODPMS Admin
+          🏥 LifeLink Admin
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <span style={{ fontSize: '14px', color: '#6b7280' }}>

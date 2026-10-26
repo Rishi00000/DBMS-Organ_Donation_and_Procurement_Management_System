@@ -1,7 +1,7 @@
 {
-  "name": "odpms-frontend",
+  "name": "lifelink-frontend",
   "version": "1.0.0",
-  "description": "Frontend for Organ Donation and Procurement Management System",
+  "description": "LifeLink frontend for organ donation and procurement management",
   "type": "module",
   "scripts": {
     "dev": "vite",

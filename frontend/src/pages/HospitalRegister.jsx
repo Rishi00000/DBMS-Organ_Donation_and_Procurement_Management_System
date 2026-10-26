@@ -255,7 +255,7 @@ const HospitalRegister = ({ onNavigateToLogin }) => {
         <div style={styles.header}>
           <div style={{ fontSize: '48px', marginBottom: '16px' }}>🏥</div>
           <h1 style={styles.title}>Hospital Registration</h1>
-          <p style={styles.subtitle}>Join the ODPMS Network</p>
+          <p style={styles.subtitle}>Join the LifeLink Network</p>
         </div>
         
         <div style={styles.body}>
