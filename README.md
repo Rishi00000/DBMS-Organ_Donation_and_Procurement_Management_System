@@ -204,7 +204,7 @@ npm test
 
 ## 📝 API Documentation
 
-API documentation is available at `/api/docs` when running the backend server.
+Setup instructions and the API reference are available in [PROJECT_GUIDE.md](PROJECT_GUIDE.md).
 
 Key endpoints:
 - `POST /api/auth/login` - User authentication
@@ -224,7 +224,7 @@ This project is developed for educational purposes as part of a Database Managem
 
 ## 👥 Authors
 
-- Mahesh Vellogi
+- Rishi
 
 ## 🙏 Acknowledgments
 

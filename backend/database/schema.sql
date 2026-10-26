@@ -1,6 +1,6 @@
 -- Organ Donation and Procurement Management System (ODPMS)
 -- PostgreSQL Database Schema
--- Author: Mahesh Vellogi
+-- Author: Rishi
 -- Description: Complete database schema with constraints, indexes, and relationships
 
 -- Drop existing tables if they exist (for development)

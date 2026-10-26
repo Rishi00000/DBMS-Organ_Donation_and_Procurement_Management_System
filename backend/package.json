@@ -16,7 +16,7 @@
     "postgresql",
     "express"
   ],
-  "author": "Mahesh Vellogi",
+  "author": "Rishi",
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.1.1",
